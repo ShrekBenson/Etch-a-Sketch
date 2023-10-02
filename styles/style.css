@@ -52,10 +52,11 @@ body{
   height: calc(32rem + (1rem/8));
   border: calc(1rem/16) solid black;  
   display: flex;
+  justify-content: right;
+  align-items: center;
   flex-wrap: wrap;
 }
-.square{
+/* .square{
   width: 2rem;
-  height: 2rem;
-  border: calc(1rem/16) solid black;
-}
+  height: 2rem;  
+} */
