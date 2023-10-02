@@ -1,3 +1,4 @@
+/* Global rules */
 *,
 *::after,
 *::before{
@@ -12,20 +13,44 @@ body{
   justify-content: center;
   align-items: center;
 }
+/* Appended classes */
+.draw{
+  background-color: black;
+}
+/* Document styles */
 .ui{
   display: flex;
   justify-content: center;
-  gap: 10rem;
+  gap: 5rem;
 }
 .menu{
   width: 20rem;
   height: calc(32rem + (1rem/4));
   border: calc(1rem/16) solid black;
+  padding: 1.5rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: .8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.option{
+  display: flex;
+  flex-direction: column;
+  gap: .5rem; 
+}
+.input{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+#size{
+  outline: none;  
 }
 .canvas{
   width: calc(32rem + (1rem/8));
   height: calc(32rem + (1rem/8));
-  border: calc(1rem/16) solid black;
+  border: calc(1rem/16) solid black;  
   display: flex;
   flex-wrap: wrap;
 }
