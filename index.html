@@ -7,20 +7,37 @@
     <script src="scripts/sketch.js" defer></script>
   </head>
 
-  <body>
-    <div class="ui">
-      <div class="menu">
-        <div class="option">
-          <label for="size">Grid size</label>
-          <div class="input">
-            <input type="range" name="size" id="size" min="16" max="96" value="16" step="16">
-            <output for="size" name="size-selected">16px</output>
+  <body>    
+    <h1>Eketch-a-Sketch</h1>
+    <div class="sketch">
+      <div class="ui">
+        <div class="menu">
+          <div class="option">
+            <label for="size">Grid size</label>
+            <div class="input">
+              <input type="range" name="size" id="size" min="16" max="96" value="16" step="16">
+              <output for="size" name="size-selected">16px</output>
+            </div>
+          </div>
+          <div class="option">
+            <label for="size">Darkening</label>
+            <div class="input">
+              <input type="checkbox" name="darkening" id="darkening" min="0" max="96" value="16" step="16">
+              <output for="darkening" name="darkening-status">Off</output>
+            </div>
+          </div>
+          <div class="option">
+            <label for="color">Pen color</label>
+            <div class="input">
+              <input type="color" name="color" id="color" value="#000000">
+              <output for="color" name="color-selected">#000000</output>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="canvas">
-  
-      </div>  
+        <div class="canvas">
+    
+        </div>  
+    </div>
     </div>
   </body>
 </html>

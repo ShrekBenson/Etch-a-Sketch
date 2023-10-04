@@ -1,5 +1,9 @@
 const SIZE = document.getElementById('size');
 const OUTPUT = document.querySelector('output[name = "size-selected"]')
+const COLOR = document.getElementById(`color`);
+const OUTPUT_COLOR = document.querySelector('output[name = "color-selected"]');
+const DARKENING = document.querySelector('#darkening');
+const OUTPUT_DARKENING = document.querySelector(`output[name = "darkening-status"]`);
 const CANVAS = document.querySelector('.canvas');
 const SQUARE = document.createElement('div');
 SQUARE.classList.add('square');
@@ -42,7 +46,7 @@ function makeGrid(size){
 
   for (let i = 0; i < grid; i++) {
     const SQUARE = document.createElement('div');
-    SQUARE.style.cssText = `width: ${width}rem; height: ${height}rem; border: 1px solid black`;
+    SQUARE.style.cssText = `width: ${width}rem; height: ${height}rem;`;
     CANVAS.appendChild(SQUARE);
   }
 }
@@ -56,20 +60,42 @@ CANVAS.addEventListener('mouseleave', () =>{
 })
 CANVAS.addEventListener('mousedown', (e) =>{
   e.preventDefault();
-  e.target.classList.add('draw');
+  let color = COLOR.value
+  e.target.style.backgroundColor = color;
   down = true;
 })
 CANVAS.addEventListener('mousemove', (e) =>{
   if (down && e.target.className !== 'canvas') {
-    e.target.classList.add('draw');    
+    let color = COLOR.value;
+    if (DARKENING.checked === true) {      
+      e.target.style.filter = `brightness(.8)`
+    } else {
+      e.target.style.filter = `brightness(1)`
+      e.target.style.backgroundColor = color;         
+    }
   }
 })
 
 window.addEventListener('DOMContentLoaded', () => {
   makeGrid(SIZE.value);  
-})
-window.addEventListener('input', () => {
+});
+
+DARKENING.addEventListener('input', () => {
+  if (DARKENING.checked === true) {
+    OUTPUT_DARKENING.innerText = `On`    
+  } else {
+    OUTPUT_DARKENING.innerText = `off`
+  }
+});
+
+COLOR.addEventListener('input', () => {
+  OUTPUT_COLOR.textContent = `${COLOR.value}`;
+});
+
+SIZE.addEventListener('input', () => {
   CANVAS.innerHTML = '';
   makeGrid(SIZE.value);
-  OUTPUT.textContent = `${SIZE.value}px`;  
-})
+  OUTPUT.textContent = `${SIZE.value}px`;
+});
+
+console.log(COLOR.value);
